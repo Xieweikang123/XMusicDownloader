@@ -22,7 +22,9 @@ namespace XMusicDownloader.Provider
 
         public List<Song> SearchSongs(string keyword,int page,int pageSize)
         {
-            var searchResult = HttpHelper.GET(string.Format("http://c.y.qq.com/soso/fcgi-bin/search_for_qq_cp?w={0}&format=json&p={1}&n={2}", keyword, page,pageSize), DEFAULT_CONFIG);
+            //var searchResult = HttpHelper.GET(string.Format("http://c.y.qq.com/soso/fcgi-bin/search_for_qq_cp?w={0}&format=json&p={1}&n={2}", keyword, page,pageSize), DEFAULT_CONFIG);
+            var searchResult = HttpHelper.GET(string.Format("https://c.y.qq.com/soso/fcgi-bin/client_search_cp?p={0}&n={1}&w={2}&format=json", page, pageSize, keyword), DEFAULT_CONFIG);
+
             var searchResultJson = JsonParser.Deserialize(searchResult).data.song;
             //return json.mods.itemlist.data.collections[0];
             var result = new List<Song>();

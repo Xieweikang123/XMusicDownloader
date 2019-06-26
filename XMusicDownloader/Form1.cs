@@ -27,12 +27,36 @@ namespace XMusicDownloader
         {
             InitializeComponent();
         }
-        string target = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + "\\Download\\";
+        //string target = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + "\\Download\\";
+        string target = @"C:\Users\Searching\Music";
 
         private void Form1_Load(object sender, EventArgs e)
         {
             textBox2.Text = target;
+            //int[] result = TwoSum(new int[] { 2, 7, 11, 15 }, 9);
         }
+        public int[] TwoSum(int[] nums, int target)
+        {
+            int[] resultAry=new int[2];
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                resultAry[0] = i;
+                for(int j = i + 1; j < nums.Length; j++)
+                {
+                    if(nums[i]+nums[j]==target)
+                    {
+                        resultAry[1] = j;
+                        break;
+                    }
+                }
+                Console.WriteLine(nums[i]);
+            }
+
+            return resultAry;
+        }
+
+
 
         //浏览
         private void pathBtn_Click(object sender, EventArgs e)
@@ -51,7 +75,7 @@ namespace XMusicDownloader
         private void searchBtn_Click(object sender, EventArgs e)
         {
             page = 1;
-            GetList(page);
+            GetSongList(page);
         }
 
         //上一页
@@ -60,7 +84,7 @@ namespace XMusicDownloader
             if (page > 1)
             {
                 page--;
-                GetList(page);
+                GetSongList(page);
 
                 if (page == 1)
                     lastPageBtn.Enabled = false;
@@ -71,7 +95,7 @@ namespace XMusicDownloader
         private void nextPageBtn_Click(object sender, EventArgs e)
         {
             page++;
-            GetList(page);
+            GetSongList(page);
 
             if (page > 1)
             {
@@ -105,7 +129,7 @@ namespace XMusicDownloader
         /// 获取歌曲列表
         /// </summary>
         /// <param name="page"></param>
-        private void GetList(int page)
+        private void GetSongList(int page)
         {
             StartProcessBar();
             pageNum.Text = "第" + page + "页";
@@ -113,8 +137,8 @@ namespace XMusicDownloader
             toolStripStatusLabel1.Text = "搜索中...";
             List<ListViewItem> listViewItems = new List<ListViewItem>();
 
-
-            var songs = provider.SearchSongs(textBox1.Text, page, 20);
+            //List<MergedSong>
+            List<MergedSong> songs = provider.SearchSongs(txtSearchKey.Text, page, 20);
 
             songs.ForEach(item =>
             {

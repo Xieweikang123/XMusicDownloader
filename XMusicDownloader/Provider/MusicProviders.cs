@@ -15,7 +15,8 @@ namespace XMusicDownloader.Provider
         {
             get
             {
-                return Holder.providers;
+                //return Holder.providers;
+                return Holder.Load();
             }
         }
 
@@ -57,13 +58,13 @@ namespace XMusicDownloader.Provider
 
         static class Holder
         {
-            public static MusicProviders providers = Load();
+            //public static MusicProviders providers = Load();
 
             /// <summary>
             /// 从当前Assembly加载
             /// </summary>
             /// <returns></returns>
-            private static MusicProviders Load()
+            public static MusicProviders Load()
             {
                 Assembly assembly = Assembly.GetExecutingAssembly();
                 List<Type> hostTypes = new List<Type>();

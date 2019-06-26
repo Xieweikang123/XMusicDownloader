@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtSearchKey = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -52,15 +52,15 @@
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txtSearchKey
             // 
-            this.textBox1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox1.Location = new System.Drawing.Point(8, 35);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(452, 26);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.Text = "周杰伦";
+            this.txtSearchKey.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtSearchKey.Location = new System.Drawing.Point(8, 35);
+            this.txtSearchKey.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSearchKey.Name = "txtSearchKey";
+            this.txtSearchKey.Size = new System.Drawing.Size(452, 26);
+            this.txtSearchKey.TabIndex = 0;
+            this.txtSearchKey.Text = "周杰伦";
             // 
             // label1
             // 
@@ -287,8 +287,6 @@
             this.CaptionHeight = 20;
             this.ClientSize = new System.Drawing.Size(800, 639);
             this.CloseBoxSize = new System.Drawing.Size(40, 20);
-            this.ControlBoxActive = System.Drawing.Color.SteelBlue;
-            this.ControlBoxDeactive = System.Drawing.Color.SkyBlue;
             this.Controls.Add(this.pageNum);
             this.Controls.Add(this.nextPageBtn);
             this.Controls.Add(this.lastPageBtn);
@@ -299,7 +297,7 @@
             this.Controls.Add(this.searchBtn);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtSearchKey);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.ForeColor = System.Drawing.Color.Black;
@@ -325,7 +323,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtSearchKey;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Timer timer1;
